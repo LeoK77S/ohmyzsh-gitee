@@ -37,8 +37,8 @@ def get_install_mirror(source_path: str, dest_path: str):
         ]
         mirror = '\n#'.join(default_settings) + '\n\n' + '\n'.join(mirror_settings)
         dest_data = source_data.replace(default, mirror)
-        with open(dest_path, 'w', encoding='utf-8') as dest:
-            dest.write(dest_data)
+        with open(dest_path, 'wb') as dest:
+            dest.write(dest_data.encode('utf-8'))
 
 
 if __name__ == '__main__':
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     install_new = 'install' + datetime.datetime.now().strftime('-%Y-%m-%d-%H-%M-%S') + '.sh'
     install_url = 'https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh'
     wget.download(install_url, install_new)
-    if os.path.exists(install) and hash_check(install) == hash_check(install_new):
+    if os.path.exists(install) and hash_check(install) == hash_check(install_new) and os.path.exists(install_mirror):
         os.remove(install_new)
         print("install.sh is up to date, no need to check it")
     else:
