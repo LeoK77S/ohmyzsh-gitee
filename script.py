@@ -46,7 +46,7 @@ if __name__ == '__main__':
     install_mirror = 'install.gitee.sh'
     install_new = 'install' + datetime.datetime.now().strftime('-%Y-%m-%d-%H-%M-%S') + '.sh'
     install_url = 'https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh'
-    wget.download(install_url, install_new)
+    wget.download(install_url, install_new, bar=None)
     if os.path.exists(install) and hash_check(install) == hash_check(install_new) and os.path.exists(install_mirror):
         os.remove(install_new)
         print("install.sh is up to date, no need to check it")
