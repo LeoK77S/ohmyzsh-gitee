@@ -22,7 +22,7 @@
 
 ```shell
 # Default settings
-ZSH=${ZSH:-~/.oh-my-zsh}
+ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 REPO=${REPO:-ohmyzsh/ohmyzsh}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
@@ -30,14 +30,14 @@ BRANCH=${BRANCH:-master}
 
 ```shell
 # Default settings
-#ZSH=${ZSH:-~/.oh-my-zsh}
+#ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 #REPO=${REPO:-ohmyzsh/ohmyzsh}
 #REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 #BRANCH=${BRANCH:-master}
 
 # Mirror settings
 # https://gitee.com/mirrors/oh-my-zsh
-ZSH=${ZSH:-~/.oh-my-zsh}
+ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 REPO=${REPO:-mirrors/oh-my-zsh}
 REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
