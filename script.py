@@ -21,7 +21,7 @@ def get_install_mirror(source_path: str, dest_path: str):
         source_data = ''.join(sh.readlines())
         default_settings = [
             "# Default settings",
-            "ZSH=${ZSH:-~/.oh-my-zsh}",
+            "ZSH=\"${ZSH:-$HOME/.oh-my-zsh}\"",
             "REPO=${REPO:-ohmyzsh/ohmyzsh}",
             "REMOTE=${REMOTE:-https://github.com/${REPO}.git}",
             "BRANCH=${BRANCH:-master}"
@@ -30,7 +30,7 @@ def get_install_mirror(source_path: str, dest_path: str):
         mirror_settings = [
             "# Mirror settings",
             "# https://gitee.com/mirrors/oh-my-zsh",
-            "ZSH=${ZSH:-~/.oh-my-zsh}",
+            "ZSH=\"${ZSH:-$HOME/.oh-my-zsh}\"",
             "REPO=${REPO:-mirrors/oh-my-zsh}",
             "REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}",
             "BRANCH=${BRANCH:-master}"
