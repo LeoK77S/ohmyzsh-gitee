@@ -20,22 +20,17 @@ def get_install_mirror(source_path: str, dest_path: str):
     with open(source_path, 'r', encoding='utf-8') as sh:
         source_data = ''.join(sh.readlines())
         default_settings = [
-            "# Default settings",
-            "ZSH=\"${ZSH:-$HOME/.oh-my-zsh}\"",
             "REPO=${REPO:-ohmyzsh/ohmyzsh}",
-            "REMOTE=${REMOTE:-https://github.com/${REPO}.git}",
-            "BRANCH=${BRANCH:-master}"
+            "REMOTE=${REMOTE:-https://github.com/${REPO}.git}"
         ]
         default = '\n'.join(default_settings)
         mirror_settings = [
             "# Mirror settings",
             "# https://gitee.com/mirrors/oh-my-zsh",
-            "ZSH=\"${ZSH:-$HOME/.oh-my-zsh}\"",
             "REPO=${REPO:-mirrors/oh-my-zsh}",
-            "REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}",
-            "BRANCH=${BRANCH:-master}"
+            "REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}"
         ]
-        mirror = '\n#'.join(default_settings) + '\n\n' + '\n'.join(mirror_settings)
+        mirror = '# ' + '\n# '.join(default_settings) + '\n\n' + '\n'.join(mirror_settings)
         dest_data = source_data.replace(default, mirror)
         with open(dest_path, 'wb') as dest:
             dest.write(dest_data.encode('utf-8'))
